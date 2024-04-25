@@ -1,0 +1,5 @@
+email: alsoffimustafa@gmail.com
+password: 12345678
+super: true
+roles:
+  - admin
