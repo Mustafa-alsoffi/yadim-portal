@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: home
 updated_by: 1
-updated_at: 1714055231
+updated_at: 1714061948
 ---
 ## Welcome to your brand new Statamic site!
 
