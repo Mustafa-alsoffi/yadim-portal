@@ -857,8 +857,6 @@
                 </svg>
             </div>
 
-            <h1 style="color: white">{!! $page->title !!}</h1>
-            <div style="color: white">{!! $page->content !!}</div>
             <div class="mt-16">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
                     <a href="https://laravel.com/docs"
