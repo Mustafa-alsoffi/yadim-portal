@@ -4,9 +4,9 @@ blueprint: pages
 title: Home
 template: home
 updated_by: 1
-updated_at: 1714061948
+updated_at: 1715665053
 ---
-## Welcome to your brand new Statamic site!
+## Welcome to your brand new Yadim site!
 
 Not sure where to do next? Here are a few ideas, but feel free to explore in your own way, in your own time.
 
