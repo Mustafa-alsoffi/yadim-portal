@@ -4,6 +4,7 @@ use Statamic\Facades\Statamic;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\WordPressController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,17 +34,19 @@ Route::get('/aboutus', function () {
 Auth::routes();
 
 Route::get('/homepage', function () {
-        return view('homepage');
-    });
+    return view('homepage');
+});
 Route::get('/contactus', function () {
-        return view('contactus');
-    });
+    return view('contactus');
+});
 
-    Route::get('/map', function () {
-        return view('map');
-    });
+Route::get('/map', function () {
+    return view('map');
+});
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    });
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
 
+Route::get('/wp-posts', [WordPressController::class, 'getPosts']);
+Route::get('/wp-users', [WordPressController::class, 'getUsers']);
