@@ -1,0 +1,44 @@
+.map-page {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    padding: 0px 0;
+}
+
+.map-page .header-container {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #01AEA5;
+    color: white;
+    margin-bottom: 50px;
+}
+
+.map-page .header-container h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+.map-page .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.map-page h2 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #3a4b5c;
+    margin-bottom: 10px;
+}
+
+.map-page p {
+    text-align: center;
+    font-size: 1.2em;
+    color: #5f6f7f;
+    margin-bottom: 50px;
+}
+
+#map {
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

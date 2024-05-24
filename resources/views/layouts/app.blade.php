@@ -18,63 +18,47 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
+        <Navbar></Navbar>
+        <div class="content-wrapper"> <!-- Add this wrapper div -->
+            <main class="py-4">
+                @yield('content')
+            </main>
+        </div>
+        <footer class="footer">
+    <div class="footer-bottom text-center py-5">
+        <section id="author-section" class="author-section section theme-bg-primary py-5 custom-blue-footer">
+            <div class="container py-3">
+                <div class="author-bio single-col-max mx-auto">
+                    <p>This landing page is good <a class="theme-link" href="http://themes.3rdwavemedia.com"
+                            target="_blank">Xiaoying Riley</a> Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Necessitatibus illo expedita dolore delectus deleniti debitis! Reiciendis maxime omnis
+                        veritatis provident ut. Quasi nesciunt, inventore consectetur voluptatum culpa harum! Earum, ex. as <a
+                            class="theme-link" href="https://gumroad.com/" target="_blank">Gumroad</a> to handle
+                        your book payment and delivery.</p>
+                    <p> as long as you <strong>keep the footer attribution link</strong>. You do
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, minus, facere possimus nulla
+                        inventore dolorem incidunt esse laborum quod accusamus quis voluptate quae delectus fuga.
+                        Totam quod
+                        animi praesentium doloremque.ooter <a class="theme-link" href="#"
+                            target="_blank"><strong>commercial license</strong></a>.</p>
+                    <div class="author-links text-center pt-4">
+                        <h5 class="text-white mb-4">Follow Us</h5>
+                        <ul class="social-list list-unstyled">
+                            <li class="list-inline-item"><a href="https://twitter.com/3rdwave_themes"><i
+                                        class="fab fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="https://github.com/xriley"><i
+                                        class="fab fa-github-alt"></i></a></li>
+                            <li class="list-inline-item"><a href="https://medium.com/@3rdwave_themes"><i
+                                        class="fab fa-medium-m"></i></a></li>
+                            <li class="list-inline-item"><a href="https://themes.3rdwavemedia.com/"><i
+                                        class="fas fa-globe-europe"></i></a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
+        </section>
+    </div>
+</footer>
     </div>
 </body>
 </html>

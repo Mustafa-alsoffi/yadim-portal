@@ -6,3 +6,39 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+.navbar {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: white; // Add background if necessary
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 90px; // Fixed height for the navbar
+    padding: 0 20px; // Adjust padding as needed
+    margin: 0;
+}
+
+.content-wrapper {
+    margin-top: 80px; // Adjust this value to ensure content is not hidden under the navbar
+}
+
+.hero-section {
+    margin-top: 80px; // Adjust based on navbar height
+}
+
+.custom-blue-footer {
+    background-color: #01AEA5; /* Adjust this to your desired shade of blue */
+    color: white; /* Ensure text is readable on blue background */
+}
+
+.custom-blue-footer a {
+    color: #fff; /* Ensure links are readable on blue background */
+}
+
+.custom-blue-footer a:hover {
+    color: #d1ecf1; /* Optional: Change link color on hover */
+}
+
+// main {
+//     margin-top: 80px; // Adjust this value to match the height of your navbar
+// }

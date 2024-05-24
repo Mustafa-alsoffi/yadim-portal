@@ -6,7 +6,8 @@
 
 import './bootstrap';
 import { createApp } from 'vue';
-
+import Navbar from './components/Navbar.vue';
+import Footer from './components/Footer.vue';
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
  * registering components with the application instance so they are ready
@@ -14,6 +15,9 @@ import { createApp } from 'vue';
  */
 
 const app = createApp({});
+
+app.component('Navbar', Navbar);
+app.component('Footer', Footer);
 
 import ExampleComponent from './components/ExampleComponent.vue';
 app.component('example-component', ExampleComponent);
