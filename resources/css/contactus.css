@@ -1,0 +1,115 @@
+.contactus-page {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    padding: 50px 0;
+}
+
+.contactus-page .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contactus-page h1 {
+    text-align: center;
+    font-size: 3em;
+    color: #01AEA5;
+    margin-bottom: 20px;
+}
+
+.contactus-page p {
+    text-align: center;
+    font-size: 1.2em;
+    color: #5f6f7f;
+    margin-bottom: 50px;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+    margin-right: 20px;
+}
+
+.contact-info .info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.contact-info .info-item i {
+    font-size: 2em;
+    color: #01AEA5;
+    margin-right: 20px;
+}
+
+.contact-info h3 {
+    font-size: 1.5em;
+    color: #3a4b5c;
+    margin-bottom: 5px;
+}
+
+.contact-info p {
+    font-size: 1em;
+    color: #5f6f7f;
+}
+
+.contact-form {
+    flex: 2;
+    min-width: 300px;
+    background-color: #f0f4f8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    font-size: 1em;
+    color: #3a4b5c;
+    margin-bottom: 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.contact-info .info-item .icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 40px; /* Increase margin-right to create more space */
+}
+.contact-form textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+.contact-form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #01AEA5;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #018b8a;
+}

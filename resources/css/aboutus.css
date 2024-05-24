@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 0;
+}
+
+.about-us-header-container { /* New class for the header container */
+    text-align: center;
+    background-color: #01AEA5;
+    color: white;
+    padding: 20px 0;
+}
+
+.about-us-container { /* Updated class name */
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 50px;
+    background-color: #e0e8f0;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.about-us {
+    max-width: 60%;
+}
+
+.about-us h1 {
+    font-size: 2em;
+    color: #3a4b5c;
+}
+
+.about-us p {
+    font-size: 1em;
+    color: #5f6f7f;
+    line-height: 1.5em;
+}
+
+.learn-more {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #3a4b5c;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.learn-more:hover {
+    background-color: #2a3a4b;
+}
+
+.profile {
+    max-width: 30%;
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image {
+    margin-bottom: 20px;
+}
+
+/* Removed .profile-picture styling */
+
+.profile h2 {
+    font-size: 1.5em;
+    color: #3a4b5c;
+}
+
+.profile p {
+    font-size: 1em;
+    color: #5f6f7f;
+    line-height: 1.5em;
+}
+
+.more-about {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #3a4b5c;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.more-about:hover {
+    background-color: #2a3a4b;
+}

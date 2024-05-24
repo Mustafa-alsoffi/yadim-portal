@@ -19,9 +19,31 @@ Route::post('/users', [UserController::class, 'store']);
 
 Route::statamic('password', 'auth.password');
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
+Route::get('/', [HomeController::class, 'index']);
+
+Route::get('/aboutus', function () {
+    return view('aboutus');
 });
 
+Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index']);
+Route::get('/homepage', function () {
+        return view('homepage');
+    });
+Route::get('/contactus', function () {
+        return view('contactus');
+    });
+
+    Route::get('/map', function () {
+        return view('map');
+    });
+
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    });
+
