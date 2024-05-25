@@ -4,6 +4,11 @@ use Statamic\Facades\Statamic;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\LikeController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,3 +52,17 @@ Route::get('/contactus', function () {
         return view('dashboard');
     });
 
+    // Route::get('/page/{slug}', [PageController::class, 'show']);
+Route::get('/', [PageController::class, 'index'])->name('index');
+
+    Route::get('/', [PageController::class, 'index'])->name('home');
+    // Route::get('/page/{slug}', [PageController::class, 'show'])->name('page.show');
+//     Route::post('/like/{entry}', [LikeController::class, 'like'])->name('like');
+//  Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
+
+ Route::middleware('auth')->group(function () {
+    Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
+    Route::post('/like/{entry}', [LikeController::class, 'like'])->name('like');
+});
+
+Route::get('/page/{slug}', [PageController::class, 'show'])->name('page.show');
