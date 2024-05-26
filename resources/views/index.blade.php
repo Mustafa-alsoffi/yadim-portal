@@ -2,6 +2,8 @@
 
 @section('content')
 @vite(['resources/css/map.css']) <!-- Link the CSS file using Vite -->
+@vite(['resources/css/index.css']) <!-- Link the CSS file using Vite -->
+
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <header class="header">
@@ -45,6 +47,9 @@
             </div>
     </nav> -->
 </header>
+<div class="header-container"> <!-- New container for the header -->
+    <h1>WELCOME TO YADIM</h1>
+</div>
 
 <section class="hero-section">
     <div class="container">

@@ -15,6 +15,10 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    <!-- FontAwesome -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
     <div id="app">
@@ -29,6 +33,8 @@
         <section id="author-section" class="author-section section theme-bg-primary py-5 custom-blue-footer">
             <div class="container py-3">
                 <div class="author-bio single-col-max mx-auto">
+                <img src="/assets/images/logo.png" alt="Logo" class="footer-logo mb-3">
+
                     <p>This landing page is good <a class="theme-link" href="http://themes.3rdwavemedia.com"
                             target="_blank">Xiaoying Riley</a> Lorem ipsum dolor sit amet consectetur, adipisicing
                         elit. Necessitatibus illo expedita dolore delectus deleniti debitis! Reiciendis maxime omnis

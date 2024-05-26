@@ -55,8 +55,8 @@ class PageController extends Controller
 
         $content = Markdown::parse($entry->get('content'));
         $comments = Comment::where('entry_id', $entry->id())->with('user')->get();
-        $likesCount = 0; // Replace with actual like count logic
-
+       // $likesCount = 0; // Replace with actual like count logic
+        $likesCount = Like::where('entry_id', $entry->id())->count();
         return view('page.show', compact('entry', 'content', 'comments', 'likesCount'));
 }
 private function extractFirstImage($content)
