@@ -1,68 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-    <header class="header">
-        <!-- <nav class="navbar navbar-expand-lg navbar-light">
-                    <div class="branding" style="padding-left: 100px; padding-right: 100px;">
-                        <div class="container-fluid position-relative py-4">
-                            <div class="logo-wrapper">
-                                <div class="site-logo">
-                                    <a class="navbar-brand" href="/">
-                                        <img style="width:150px" class="logo-icon ms-2" src="/assets/images/site-logo.png" alt="logo">
-                                        <span class="logo-text"></span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container-fluid">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
-                            aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="navbar-collapse collapse" id="navbar">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#benefits-section">Laman Utama</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#content-section">Tentang kami</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#audience-section">Peta</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#form-section">Hantar Data</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="header-right d-flex align-items-center">
-                            <a class="btn btn-outline-primary me-3" href="/login">Login</a>
-                            <a class="btn btn-primary" href="/signup">Sign Up</a>
-                        </div>
-                </nav> -->
-    </header>
+    <header class="header"></header>
 
     <section class="hero-section">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-7 pt-5 mb-5 align-self-center">
                     <div class="promo pe-md-3 pe-lg-5">
-                        <h1 class="headline mb-3">
-                            Pusat Demografi Dakwah
-                        </h1>
+                        <h1 class="headline mb-3">Pusat Demografi Dakwah</h1>
                         <div class="subheadline mb-4">
-                            Sebuah pusat atau platform khusus yang berfokus pada pengumpulan, analisis, dan pemanfaatan
-                            data demografi untuk meningkatkan keberkesanan kerja dakwah Islam
+                            Sebuah pusat atau platform khusus yang berfokus pada pengumpulan, analisis, dan pemanfaatan data
+                            demografi untuk meningkatkan keberkesanan kerja dakwah Islam
                         </div>
 
-                        <div class="cta-holder row gx-md-3 gy-3 gy-md-0">
-                            <div class="col-12 col-md-auto">
-                                <a class="btn btn-primary w-100" href="#">Get
-                                    Started</a>
+                        <div class="d-flex justify-items-end">
+                            <div class="d-felx col-12 col-md-auto align-self-end">
+                                <a class="btn btn-primary w-100" href="#">Get Started</a>
                             </div>
-                            <div class="col-12 col-md-auto">
-                                <a class="btn btn-secondary scrollto w-100" href="#benefits-section">Learn More</a>
+                            <div class=" col-12 col-md-auto align-self-end">
+                                <a class="btn btn-secondary w-100" href="#benefits-section">Learn More</a>
                             </div>
                         </div>
 
@@ -81,18 +38,18 @@
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
                                         <blockquote class="quote p-4 theme-bg-light">
-                                            "Excellent Book! Add your book reviews here consectetur adipiscing elit.
-                                            Aliquam euismod nunc porta urna facilisis tempor. Praesent mauris neque,
-                                            viverra quis erat vitae, auctor imperdiet nisi."
+                                            "Excellent Book! Add your book reviews here consectetur adipiscing elit. Aliquam
+                                            euismod nunc porta urna facilisis tempor. Praesent mauris neque, viverra quis
+                                            erat vitae, auctor imperdiet nisi."
                                         </blockquote>
                                         <div class="source row gx-md-3 gy-3 gy-md-0 align-items-center">
                                             <div class="col-12 col-md-auto text-center text-md-start">
-                                                <img class="source-profile" src="/assets/images/profiles/profile-2.png"
-                                                    alt="image">
+                                                <img width='60px' height='60px' class="source-profile"
+                                                    src="/assets/images/profiles/profile-2.png" alt="image">
                                             </div>
                                             <div class="col source-info text-center text-md-start">
                                                 <div class="source-name">NGO 1</div>
-                                                <div class="soure-title">Co-Founder, Startup Week</div>
+                                                <div class="source-title">Co-Founder, Startup Week</div>
                                             </div>
                                         </div>
                                     </div>
@@ -104,29 +61,29 @@
                                         </blockquote>
                                         <div class="source row gx-md-3 gy-3 gy-md-0 align-items-center">
                                             <div class="col-12 col-md-auto text-center text-md-start">
-                                                <img class="source-profile" src="/assets/images/profiles/profile-2.png"
-                                                    alt="image">
+                                                <img width='60px' height='60px' class="source-profile"
+                                                    src="/assets/images/profiles/profile-2.png" alt="image">
                                             </div>
                                             <div class="col source-info text-center text-md-start">
                                                 <div class="source-name">NGO 3</div>
-                                                <div class="soure-title">Co-Founder, Startup Week</div>
+                                                <div class="source-title">Co-Founder, Startup Week</div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="carousel-item">
                                         <blockquote class="quote p-4 theme-bg-light">
                                             "Awesome! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                                            euismod nunc porta urna facilisis tempor. Praesent mauris neque, viverra
-                                            quis erat vitae."
+                                            euismod nunc porta urna facilisis tempor. Praesent mauris neque, viverra quis
+                                            erat vitae."
                                         </blockquote>
                                         <div class="source row gx-md-3 gy-3 gy-md-0 align-items-center">
                                             <div class="col-12 col-md-auto text-center text-md-start">
-                                                <img class="source-profile" src="/assets/images/profiles/profile-2.png"
-                                                    alt="image">
+                                                <img width='60px' height='60px' class="source-profile"
+                                                    src="/assets/images/profiles/profile-2.png" alt="image">
                                             </div>
                                             <div class="col source-info text-center text-md-start">
                                                 <div class="source-name">NGO 3</div>
-                                                <div class="soure-title">Frontend Developer, Company Lorem</div>
+                                                <div class="source-title">Frontend Developer, Company Lorem</div>
                                             </div>
                                         </div>
                                     </div>
@@ -150,45 +107,24 @@
                 Penduduk Muslim Dashboard
             </h2>
             <img class="img-fluid" src="/assets/images/dashboard.png" alt="image description">
+        </div>
     </section>
 
     <section id="audience-section" class="audience-section py-5">
         <div class="container mb-5">
             <h2 class="section-heading text-center mb-4">Latest Blogs</h2>
-            <div class="row mb-5">
-                <div class="col-md-4">
-                    <div class="blog-card">
-                        <img src="/assets/images/blog-image-1.jpg" alt="Blog Image">
-                        <div class="blog-content">
-                            <h3 class="blog-title">Blog Title 1</h3>
-                            <p class="blog-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-                                sodales sit amet neque sit amet molestie.</p>
-                            <a href="#" class="btn btn-primary">Read More</a>
+            <div class="row">
+                @foreach ($posts as $post)
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h3 class="card-title">{{ $post['title']['rendered'] }}</h3>
+                                <p class="card-text content">{!! $post['content']['rendered'] !!}</p>
+                                <a href="{{ $post['link'] }}" class="btn btn-primary">Read More</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog-card">
-                        <img src="/assets/images/blog-image-2.jpg" alt="Blog Image">
-                        <div class="blog-content">
-                            <h3 class="blog-title">Blog Title 2</h3>
-                            <p class="blog-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-                                sodales sit amet neque sit amet molestie.</p>
-                            <a href="#" class="btn btn-primary">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog-card">
-                        <img src="/assets/images/blog-image-3.jpg" alt="Blog Image">
-                        <div class="blog-content">
-                            <h3 class="blog-title">Blog Title 3</h3>
-                            <p class="blog-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-                                sodales sit amet neque sit amet molestie.</p>
-                            <a href="#" class="btn btn-primary">Read More</a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

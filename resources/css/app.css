@@ -1,0 +1,23 @@
+.card {
+    margin-bottom: 20px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.card-text {
+    font-size: 1rem;
+}
+
+.btn-primary {
+    margin-top: 10px;
+}
+
+.card-text img {
+    max-width: 100%; /* Ensures the image does not exceed the width of the container */
+    height: auto; /* Maintains aspect ratio */
+    display: block; /* Ensures proper rendering of block elements */
+    margin: 0 auto; /* Centers the image within the container */
+}
