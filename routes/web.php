@@ -5,6 +5,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\WordPressController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\LikeController;
+use Illuminate\Support\Facades\Auth;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

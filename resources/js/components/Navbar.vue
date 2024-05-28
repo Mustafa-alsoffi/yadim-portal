@@ -3,32 +3,12 @@
       <img src="/assets/images/logo.png" alt="YADIM Logo" class="logo">
       <ul class="nav-links">
         <li><a href="/">HOME</a></li>
-        <li><a href="/aboutus">About Us</a></li>
         <li><a href="/dashboard">Dashboard</a></li>
-        <li><a href="/map">MAP</a></li>
-        <li><a href="/contactus">Contact Us</a></li>
         <li><a href="/dataset">Dataset</a></li>
-        <li><a href="/login">Login</a></li>
-      </ul>
-      <button class="menu-toggle" @click="toggleSidebar">
-        <img src="/assets/images/nice-dropdown-icon.png" alt="Dropdown Icon" class="icon">
-      </button>
-      <div class="sidebar" :class="{ 'sidebar-open': sidebarOpen }">
-        <button class="close-btn" @click="toggleSidebar">✖</button>
-        <div class="sidebar-content">
-          <a href="#">Muslim Population</a>
-          <a href="#">Masjid</a>
-          <a href="#">Wakaf</a>
-          <a href="#">Pondok</a>
-          <a href="#">Penerbitan</a>
-          <a href="#">NGO</a>
-          <a href="#">Kepimpinan Pelajar</a>
-          <a href="#">Sukarelawan</a>
-          <a href="#">Feedback Form</a>
-          <a href="#">Settings</a>
-          <a href="#">Log out</a>
-        </div>
-      </div>
+        <li><a href="/aboutus">About Us</a></li>
+        <li><a href="/contactus">Contact Us</a></li>
+        <li><a href="/login">Logout</a></li>
+      </ul>     
     </nav>
   </template>
   
