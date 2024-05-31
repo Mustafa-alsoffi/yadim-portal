@@ -9,15 +9,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Like extends Model
 {
-    protected $fillable = ['user_id', 'entry_id'];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+    protected $fillable = ['entry_id', 'count'];
 
     public function entry()
     {
-        return $this->belongsTo(Entry::class, 'entry_id');
+        return $this->belongsTo(Entry::class);
     }
 }

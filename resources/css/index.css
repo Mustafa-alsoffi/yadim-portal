@@ -8,3 +8,26 @@
     color: white;
     padding: 20px 0;
 }
+.btn-read-more {
+    background-color: #01AEA5; /* Change to your desired background color */
+    border-color:#01AEA5; /* Change to your desired border color */
+    color: #fff; /* Text color */
+}
+
+
+.btn-read-more:hover {
+    background-color: #098f88; /* Change to your desired hover background color */
+    border-color: #01AEA5; /* Change to your desired hover border color */
+}
+
+/* Custom button styles for Show More */
+.btn-show-more {
+    background-color:#01AEA5; /* Change to your desired background color */
+    border-color: #01AEA5; /* Change to your desired border color */
+    color: #fff; /* Text color */
+}
+
+.btn-show-more:hover {
+    background-color:#098f88; /* Change to your desired hover background color */
+    border-color: #01AEA5; /* Change to your desired hover border color */
+}

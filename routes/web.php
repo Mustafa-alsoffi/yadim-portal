@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\DashboardController;
 
 
 /*
@@ -62,7 +63,15 @@ Route::get('/', [PageController::class, 'index'])->name('index');
 
  Route::middleware('auth')->group(function () {
     Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
-    Route::post('/like/{entry}', [LikeController::class, 'like'])->name('like');
+    // Route::post('/like/{entry}', [LikeController::class, 'like'])->name('like');
+    Route::post('/like/{entry}', [PageController::class, 'like'])->name('page.like');
+    
 });
 
 Route::get('/page/{slug}', [PageController::class, 'show'])->name('page.show');
+
+// Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
+
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/data', [DashboardController::class, 'getData'])->name('data');

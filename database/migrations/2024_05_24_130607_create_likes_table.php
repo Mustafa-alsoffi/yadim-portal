@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('likes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->string('entry_id'); // Store Statamic entry ID
+            $table->foreignId('entry_id')->constrained()->onDelete('cascade');
+            $table->integer('count')->default(0);
             $table->timestamps();
         });
     }

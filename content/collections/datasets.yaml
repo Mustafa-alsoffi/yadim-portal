@@ -1,0 +1,3 @@
+title: Datasets
+template: dataset
+route: /datasets/{slug}

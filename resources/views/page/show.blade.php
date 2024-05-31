@@ -17,6 +17,8 @@
             <div class="card-footer">
                 <button class="btn btn-primary" id="like-button">Like</button>
                 <span id="like-count">{{ $likesCount }}</span> likes
+                <br> </br>
+                
                 <h3>Comments</h3>
                 <ul id="comments-list">
                     @foreach($comments as $comment)
@@ -29,6 +31,7 @@
                     <div class="form-group">
                         <textarea name="content" class="form-control" placeholder="Add a comment" required></textarea>
                     </div>
+                    <br> </br>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
@@ -39,14 +42,17 @@
 @section('scripts')
     <script>
         document.getElementById('like-button').addEventListener('click', function() {
-            fetch('{{ route('like', ['entry' => $entry->id()]) }}', {
+            fetch('{{ route('page.like', $entry->slug()) }}', {
                 method: 'POST',
                 headers: {
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    'Content-Type': 'application/json'
                 }
             }).then(response => response.json()).then(data => {
-                document.getElementById('like-count').textContent = data.likes_count;
-            });
+                if(data.likesCount !== undefined) {
+                    document.getElementById('like-count').textContent = data.likesCount + ' likes';
+                }
+            }).catch(error => console.error('Error:', error));
         });
     </script>
 @endsection

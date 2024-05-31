@@ -155,7 +155,7 @@
 <section id="benefits-section" class="benefits-section theme-bg-light-gradient py-5">
 @include('components.map-section')
 </section>
-<div class="container mt-5">
+<!-- <div class="container mt-5">
     <h1 class="mb-5 text-center">Latest News</h1>
     <div class="row">
         @foreach ($entries as $entry)
@@ -176,6 +176,45 @@
             </div>
         @endforeach
     </div>
+</div> -->
+
+<div class="container mt-5">
+    <h1 class="mb-5 text-center">Latest News</h1>
+    <div class="row" id="posts-container">
+        @include('partials.posts', ['entries' => $entries])
+    </div>
+    @if ($entries->currentPage() < $entries->lastPage())
+        <div class="text-center">
+            <button id="loadMore" class="btn btn-show-more">Show More</button>
+        </div>
+    @endif
 </div>
-</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    let currentPage = {{ $entries->currentPage() }};
+    const lastPage = {{ $entries->lastPage() }};
+    const loadMoreButton = document.getElementById('loadMore');
+
+    loadMoreButton.addEventListener('click', function () {
+        if (currentPage < lastPage) {
+            currentPage++;
+            fetch(`?page=${currentPage}`, {
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+                .then(response => response.text())
+                .then(data => {
+                    const postsContainer = document.getElementById('posts-container');
+                    postsContainer.insertAdjacentHTML('beforeend', data);
+
+                    if (currentPage >= lastPage) {
+                        loadMoreButton.style.display = 'none';
+                    }
+                });
+        }
+    });
+});
+</script>
 @endsection
