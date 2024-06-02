@@ -4,10 +4,10 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-import './bootstrap';
-import { createApp } from 'vue';
-import Navbar from './components/Navbar.vue';
-import Footer from './components/Footer.vue';
+import "./bootstrap";
+import { createApp } from "vue";
+import Navbar from "./components/Navbar.vue";
+import Footer from "./components/Footer.vue";
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
  * registering components with the application instance so they are ready
@@ -16,11 +16,15 @@ import Footer from './components/Footer.vue';
 
 const app = createApp({});
 
-app.component('Navbar', Navbar);
-app.component('Footer', Footer);
+app.component("Navbar", Navbar);
+app.component("Footer", Footer);
 
-import ExampleComponent from './components/ExampleComponent.vue';
-app.component('example-component', ExampleComponent);
+// import BarChartComponent from "./components/BarChartComponent.vue";
+// import LineChartComponent from "./components/LineChartComponent.vue";
+
+import DashboardComponent from "./components/DashboardComponent.vue";
+
+app.component("dashboard-component", DashboardComponent);
 
 /**
  * The following block of code may be used to automatically register your
@@ -40,4 +44,4 @@ app.component('example-component', ExampleComponent);
  * scaffolding. Otherwise, you will need to add an element yourself.
  */
 
-app.mount('#app');
+app.mount("#app");

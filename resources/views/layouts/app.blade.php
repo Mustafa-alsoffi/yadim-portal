@@ -46,6 +46,7 @@
 <body>
     <div id="app">
         <Navbar></Navbar>
+        <div style="height: 50px"></div>
         <div class="content-wrapper"> <!-- Add this wrapper div -->
             <main class="py-4">
                 @yield('content')
