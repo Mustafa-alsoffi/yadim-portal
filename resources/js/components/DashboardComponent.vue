@@ -1,28 +1,33 @@
 <template>
-  <div class="dashboard-container">
-    <div class="header-container">
-      <h1>Muslim Population Dashboard</h1>
-    </div>
-
-    <div class="charts-container">
-      <div class="chart">
-        <h2>Muslim Population by State</h2>
-        <BarChartComponent :chartData="barChartData" :chartOptions="chartOptions" />
-      </div>
-      <div class="chart">
-        <h2>Population Distribution</h2>
-        <PieChartComponent :chartData="pieChartData" :chartOptions="chartOptions" />
-      </div>
-      <div class="chart">
-        <h2>Muslim Population Over the Years</h2>
-        <LineChartComponent :chartData="lineChartData" :chartOptions="chartOptions" />
-        <!-- <LineChartComponent /> -->
+    <div style="height: 50px">
+        </div>
+  <div class="container">
+    <div class="row mb-4">
+      <div class="col text-center">
+        <h1>Muslim Population Dashboard</h1>
       </div>
     </div>
 
-    <div class="map-container">
-      <h2>Muslim Population Density Map</h2>
-      <div id="map" style="height: 500px;"></div>
+    <div class="row">
+      <div class="col-md-5">
+        <div class="mb-4">
+          <h2>Muslim Population by State</h2>
+          <BarChartComponent :chartData="barChartData" :chartOptions="chartOptions" />
+        </div>
+        <div class="mb-4">
+          <h2>Population Distribution</h2>
+          <PieChartComponent :chartData="pieChartData" :chartOptions="chartOptions" />
+        </div>
+        <div class="mb-4">
+          <h2>Muslim Population Over the Years</h2>
+          <LineChartComponent :chartData="lineChartData" :chartOptions="chartOptions" />
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <h2>Muslim Population Density Map</h2>
+        <div id="map" style="height: 1150px;"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -43,10 +48,6 @@ export default {
   },
   setup() {
     const barChartData = ref({
-    //   labels: [
-    //     'Johor', 'Kedah', 'Kelantan', 'Melaka', 'Negeri Sembilan', 'Pahang', 'Perak', 'Perlis',
-    //     'Pulau Pinang', 'Sabah', 'Sarawak', 'Selangor', 'Terengganu', 'Kuala Lumpur', 'Labuan', 'Putrajaya'
-    //   ],
       datasets: [{
         label: 'Muslim Population',
         data: [3445556, 1876219, 1794142, 828547, 1189734, 1622419, 2449995, 255682, 752882, 1755945, 1001787, 5310915, 1293181, 1371904, 89536, 92419],
@@ -63,10 +64,6 @@ export default {
     });
 
     const pieChartData = ref({
-    //   labels: [
-    //     'Johor', 'Kedah', 'Kelantan', 'Melaka', 'Negeri Sembilan', 'Pahang', 'Perak', 'Perlis',
-    //     'Pulau Pinang', 'Sabah', 'Sarawak', 'Selangor', 'Terengganu', 'Kuala Lumpur', 'Labuan', 'Putrajaya'
-    //   ],
       datasets: [{
         label: 'Population Distribution',
         data: [3445556, 1876219, 1794142, 828547, 1189734, 1622419, 2449995, 255682, 752882, 1755945, 1001787, 5310915, 1293181, 1371904, 89536, 92419],
@@ -82,7 +79,6 @@ export default {
     });
 
     const lineChartData = ref({
-    //   labels: ['2000', '2005', '2010', '2015', '2020'],
       datasets: [{
         label: 'Muslim Population',
         data: [15.6, 17.2, 18.9, 20.5, 22.1],
@@ -118,7 +114,6 @@ export default {
         { lat: 2.9352, lng: 101.6911, name: 'Masjid Putra', address: 'Pusat Pentadbiran Kerajaan Persekutuan, 62502, Putrajaya, Wilayah Persekutuan' },
         { lat: 3.1390, lng: 101.6869, name: 'Masjid Negara', address: 'Kuala Lumpur, Malaysia' },
         { lat: 3.1578, lng: 101.7116, name: 'Masjid Jamek', address: 'Kuala Lumpur, Malaysia' },
-       
       ];
 
       masjidLocations.forEach(location => {
@@ -142,18 +137,22 @@ export default {
 </script>
 
 <style scoped>
-.dashboard-container {
-  /* your styles here */
-
-}
-.chart-container {
-  /* your styles here */
-
-    width: 100%;
-    height: 400px;
-    margin-bottom: 20px;
-    height: 400px;
-    margin-bottom: 20px;
+.container {
+  max-width: 1200px;
 }
 
+h1 {
+  margin-bottom: 20px;
+}
+
+.chart {
+  width: 100%;
+  height: 400px;
+  margin-bottom: 20px;
+}
+
+#map {
+  width: 100%;
+  height: 500px;
+}
 </style>
