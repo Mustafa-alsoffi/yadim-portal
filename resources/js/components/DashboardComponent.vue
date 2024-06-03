@@ -1,6 +1,5 @@
 <template>
-    <div style="height: 50px">
-        </div>
+  <div style="height: 50px"></div>
   <div class="container">
     <div class="row mb-4">
       <div class="col text-center">
@@ -48,44 +47,34 @@ export default {
   },
   setup() {
     const barChartData = ref({
-      datasets: [{
-        label: 'Muslim Population',
-        data: [3445556, 1876219, 1794142, 828547, 1189734, 1622419, 2449995, 255682, 752882, 1755945, 1001787, 5310915, 1293181, 1371904, 89536, 92419],
-        backgroundColor: 'rgba(54, 162, 235, 0.6)',
-        borderColor: 'rgba(54, 162, 235, 1)',
-        borderWidth: 1
-      }, {
-        label: 'Total Population',
-        data: [3738670, 2169170, 1903600, 930200, 1226200, 1683700, 2517300, 255700, 1569600, 3922300, 2789400, 6545400, 1298800, 1776500, 103000, 92400],
-        backgroundColor: 'rgba(255, 99, 132, 0.6)',
-        borderColor: 'rgba(255, 99, 132, 1)',
-        borderWidth: 1
-      }]
+      labels: ['January', 'February', 'March'],
+      datasets: [
+        {
+          data: [40, 20, 12],
+          backgroundColor: ['#f87979', '#a6c1ee', '#f87979'],
+        }
+      ]
     });
 
     const pieChartData = ref({
-      datasets: [{
-        label: 'Population Distribution',
-        data: [3445556, 1876219, 1794142, 828547, 1189734, 1622419, 2449995, 255682, 752882, 1755945, 1001787, 5310915, 1293181, 1371904, 89536, 92419],
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.6)', 'rgba(54, 162, 235, 0.6)', 'rgba(255, 206, 86, 0.6)',
-          'rgba(75, 192, 192, 0.6)', 'rgba(153, 102, 255, 0.6)', 'rgba(255, 159, 64, 0.6)',
-          'rgba(99, 255, 132, 0.6)', 'rgba(235, 162, 54, 0.6)', 'rgba(206, 86, 255, 0.6)',
-          'rgba(192, 192, 75, 0.6)', 'rgba(102, 255, 153, 0.6)', 'rgba(159, 64, 255, 0.6)',
-          'rgba(132, 99, 255, 0.6)', 'rgba(54, 235, 162, 0.6)', 'rgba(86, 255, 206, 0.6)',
-          'rgba(64, 255, 159, 0.6)'
-        ]
-      }]
+      labels: ['Group 1', 'Group 2', 'Group 3'],
+      datasets: [
+        {
+          data: [30, 50, 20],
+          backgroundColor: ['#f87979', '#a6c1ee', '#f87979'],
+        }
+      ]
     });
 
     const lineChartData = ref({
-      datasets: [{
-        label: 'Muslim Population',
-        data: [15.6, 17.2, 18.9, 20.5, 22.1],
-        borderColor: 'rgba(54, 162, 235, 1)',
-        fill: false,
-        tension: 0.1
-      }]
+      labels: ['2018', '2019', '2020'],
+      datasets: [
+        {
+          data: [65, 59, 80],
+          borderColor: '#f87979',
+          fill: false,
+        }
+      ]
     });
 
     const chartOptions = ref({
@@ -95,6 +84,40 @@ export default {
         y: { beginAtZero: true }
       }
     });
+
+    const updateCharts = (locationName) => {
+      if (locationName === 'Masjid Putra') {
+        barChartData.value = {
+          labels: ['April', 'May', 'June'],
+          datasets: [
+            {
+              data: [30, 50, 70],
+              backgroundColor: ['#42b983', '#a6c1ee', '#f87979'],
+            }
+          ]
+        };
+        pieChartData.value = {
+          labels: ['Group A', 'Group B', 'Group C'],
+          datasets: [
+            {
+              data: [40, 30, 30],
+              backgroundColor: ['#42b983', '#a6c1ee', '#f87979'],
+            }
+          ]
+        };
+        lineChartData.value = {
+          labels: ['2019', '2020', '2021'],
+          datasets: [
+            {
+              data: [70, 75, 90],
+              borderColor: '#42b983',
+              fill: false,
+            }
+          ]
+        };
+      }
+      // Additional conditions for other locations can be added here
+    };
 
     onMounted(() => {
       const map = L.map('map').setView([4.2105, 101.9758], 7);
