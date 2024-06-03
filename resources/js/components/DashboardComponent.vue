@@ -38,6 +38,7 @@ import 'leaflet/dist/leaflet.css';
 import BarChartComponent from './BarChartComponent.vue';
 import PieChartComponent from './PieChartComponent.vue';
 import LineChartComponent from './LineChartComponent.vue';
+import { masjidLocations } from './data/masjidLocations';
 
 export default {
   components: {
@@ -85,110 +86,6 @@ export default {
       }
     });
 
-    const masjidLocations = [
-      {
-        lat: 2.9352,
-        lng: 101.6911,
-        name: 'Masjid Putra',
-        address: 'Pusat Pentadbiran Kerajaan Persekutuan, 62502, Putrajaya, Wilayah Persekutuan',
-        barChartData: {
-          labels: ['April', 'May', 'June'],
-          datasets: [
-            {
-              data: [30, 50, 70],
-              backgroundColor: ['#42b983', '#a6c1ee', '#f87979'],
-            }
-          ]
-        },
-        pieChartData: {
-          labels: ['Group A', 'Group B', 'Group C'],
-          datasets: [
-            {
-              data: [40, 30, 30],
-              backgroundColor: ['#42b983', '#a6c1ee', '#f87979'],
-            }
-          ]
-        },
-        lineChartData: {
-          labels: ['2019', '2020', '2021'],
-          datasets: [
-            {
-              data: [70, 75, 90],
-              borderColor: '#42b983',
-              fill: false,
-            }
-          ]
-        }
-      },
-      {
-        lat: 3.1390,
-        lng: 101.6869,
-        name: 'Masjid Negara',
-        address: 'Kuala Lumpur, Malaysia',
-        barChartData: {
-          labels: ['July', 'August', 'September'],
-          datasets: [
-            {
-              data: [50, 60, 80],
-              backgroundColor: ['#a6c1ee', '#f87979', '#42b983'],
-            }
-          ]
-        },
-        pieChartData: {
-          labels: ['Group X', 'Group Y', 'Group Z'],
-          datasets: [
-            {
-              data: [20, 40, 40],
-              backgroundColor: ['#a6c1ee', '#f87979', '#42b983'],
-            }
-          ]
-        },
-        lineChartData: {
-          labels: ['2017', '2018', '2019'],
-          datasets: [
-            {
-              data: [60, 70, 85],
-              borderColor: '#a6c1ee',
-              fill: false,
-            }
-          ]
-        }
-      },
-      {
-        lat: 3.1578,
-        lng: 101.7116,
-        name: 'Masjid Jamek',
-        address: 'Kuala Lumpur, Malaysia',
-        barChartData: {
-          labels: ['October', 'November', 'December'],
-          datasets: [
-            {
-              data: [70, 40, 60],
-              backgroundColor: ['#f87979', '#42b983', '#a6c1ee'],
-            }
-          ]
-        },
-        pieChartData: {
-          labels: ['Group 1', 'Group 2', 'Group 3'],
-          datasets: [
-            {
-              data: [50, 30, 20],
-              backgroundColor: ['#f87979', '#42b983', '#a6c1ee'],
-            }
-          ]
-        },
-        lineChartData: {
-          labels: ['2020', '2021', '2022'],
-          datasets: [
-            {
-              data: [80, 90, 100],
-              borderColor: '#f87979',
-              fill: false,
-            }
-          ]
-        }
-      }
-    ];
 
     const updateCharts = (location) => {
       barChartData.value = location.barChartData;
