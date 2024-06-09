@@ -177,7 +177,6 @@
         @endforeach
     </div>
 </div> -->
-
 <div class="container mt-5">
     <h1 class="mb-5 text-center">Latest News</h1>
     <div class="row" id="posts-container">

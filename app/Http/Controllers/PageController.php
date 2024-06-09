@@ -61,7 +61,8 @@ class PageController extends Controller
 
         $content = Markdown::parse($entry->get('content'));
         $comments = Comment::where('entry_id', $entry->id())->with('user')->get();
-        $likesCount = 0; // Replace with actual like count logic
+        $likesCount = Like::where('entry_id', $entry->id())->count();
+        // Replace with actual like count logic
         return view('page.show', compact('entry', 'content', 'comments', 'likesCount'));
 }
 private function extractFirstImage($content)
@@ -70,24 +71,29 @@ private function extractFirstImage($content)
         return $matches[1] ?? 'https://via.placeholder.com/150';
     }
 
+   
     public function like(Request $request, $slug)
-{
-    Log::info('Like request received for slug: ' . $slug);
+    {
+        $entry = $this->entries->query()->where('slug', $slug)->where('collection', 'pages')->first();
 
-    $entry = $this->entries->query()->where('slug', $slug)->where('collection', 'pages')->first();
+        if (!$entry) {
+            return response()->json(['error' => 'Entry not found'], 404);
+        }
 
-    if (!$entry) {
-        Log::error('Entry not found for slug: ' . $slug);
-        return response()->json(['error' => 'Entry not found'], 404);
+        $user_id = $request->user()->id ?? null;
+
+        // Toggle like
+        $like = Like::where('entry_id', $entry->id())->where('user_id', $user_id)->first();
+        if ($like) {
+            $like->delete();
+        } else {
+            Like::create(['entry_id' => $entry->id(), 'user_id' => $user_id]);
+        }
+
+        $likesCount = Like::where('entry_id', $entry->id())->count();
+        return response()->json(['likesCount' => $likesCount]);
     }
 
-    $like = Like::firstOrCreate(['entry_id' => $entry->id()]);
-    $like->increment('count');
-
-    Log::info('Entry liked: ' . $slug . ', new count: ' . $like->count);
-
-    return response()->json(['likesCount' => $like->count]);
-}
     public function dashboard()
     {
         $datasets = Entry::query()

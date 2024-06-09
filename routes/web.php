@@ -20,6 +20,10 @@ use App\Http\Controllers\DashboardController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/test-like-entry', function () {
+    $controller = app()->make(\App\Http\Controllers\PageController::class);
+    return $controller->like(request(), 'Masjids'); // Replace 'your-actual-slug' with a valid slug
+});
 
 Route::post('/users', [UserController::class, 'store']);
 
@@ -53,6 +57,12 @@ Route::get('/contactus', function () {
         return view('dashboard');
     });
 
+    Route::get('/test', function () {
+        return view('test');
+    });
+Route::get('/test-share', function () {
+        return view('test-share');
+    });
     // Route::get('/page/{slug}', [PageController::class, 'show']);
 Route::get('/', [PageController::class, 'index'])->name('index');
 
@@ -61,13 +71,16 @@ Route::get('/', [PageController::class, 'index'])->name('index');
 //     Route::post('/like/{entry}', [LikeController::class, 'like'])->name('like');
 //  Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
 
+
+
+
  Route::middleware('auth')->group(function () {
     Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
-    // Route::post('/like/{entry}', [LikeController::class, 'like'])->name('like');
-    Route::post('/like/{entry}', [PageController::class, 'like'])->name('page.like');
-    
+    // Route::post('/like/{slug}', [PageController::class, 'like'])->name('page.like');
+
 });
 
+Route::post('/like/{slug}', [PageController::class, 'like'])->name('page.like');
 Route::get('/page/{slug}', [PageController::class, 'show'])->name('page.show');
 
 // Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');

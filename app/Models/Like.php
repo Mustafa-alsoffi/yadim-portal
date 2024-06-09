@@ -2,17 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
-
 
 class Like extends Model
 {
-    protected $fillable = ['entry_id', 'count'];
+    protected $fillable = ['entry_id', 'user_id'];
 
-    public function entry()
-    {
-        return $this->belongsTo(Entry::class);
-    }
 }
