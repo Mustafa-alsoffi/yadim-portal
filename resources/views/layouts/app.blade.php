@@ -1,13 +1,19 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta charset="utf-8">
+<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="@yield('og:title')">
+    <meta property="og:description" content="@yield('og:description')">
+    <meta property="og:url" content="@yield('og:url')">
+    <meta property="og:image" content="@yield('og:image')">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -23,6 +29,7 @@
     <link rel="stylesheet" href="{{ asset('assets/fontawesome/css/all.min.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
 </head>
 <body>
     <div id="app">

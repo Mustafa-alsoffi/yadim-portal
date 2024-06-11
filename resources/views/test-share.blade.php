@@ -1,34 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Share</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        .btn-share {
-            color: #01AEA5;
-        }
-        .btn-share:hover {
-            color: #ffffff;
-        }
-    </style>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('og:title', 'Test Post Title')
+@section('og:description', 'This is a test description for the post.')
+@section('og:url', url()->current())
+@section('og:image', asset('default-image.jpg'))
+
+@section('content')
     <div class="container mt-5">
-        <div class="card">
+        <div class="card" style="max-width: 1200px; margin: 0 auto;">
             <div class="card-header d-flex justify-content-between align-items-center">
-                <h1>Sample Post Title</h1>
+                <h1>Test Post Title</h1>
                 <button id="share-button" class="btn btn-outline-success">
                     <i class="fas fa-share-alt"></i> Share
                 </button>
             </div>
             <div class="card-body">
-                <p>This is a sample post content to test the share functionality.</p>
+                <p>This is a test description for the post.</p>
+                <div class="image-container">
+                    <img src="{{ asset('default-image.jpg') }}" alt="Default Image" class="post-image" />
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="d-flex justify-content-start align-items-center">
+                    <button id="like-button" class="btn btn-outline-primary mr-2">
+                        👍 Like
+                    </button>
+                    <span id="like-count" class="mr-3">0</span> likes
+                    <button id="comment-toggle" class="btn btn-outline-secondary">
+                        💬 Comment
+                    </button>
+                </div>
             </div>
         </div>
 
+        <!-- Share Modal -->
         <div id="share-modal" class="modal fade" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -50,8 +55,6 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const shareButton = document.getElementById('share-button');
@@ -61,16 +64,106 @@
                 shareModal.modal('show');
             });
 
-            const url = "http://localhost/test-share";
-            const title = "Sample Post Title";
-            const text = "This is a sample post content to test the share functionality.";
+            const url = "{{ url()->current() }}";
+            const title = "Test Post Title";
+            const text = `Check out this post: ${title} ${url}`;
 
             document.getElementById('share-facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-            document.getElementById('share-twitter').href = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
-            document.getElementById('share-whatsapp').href = `https://api.whatsapp.com/send?text=${encodeURIComponent(title + "\n" + url + "\n\n" + text)}`;
-            document.getElementById('share-telegram').href = `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title + "\n\n" + text)}`;
-            document.getElementById('share-instagram').href = `https://www.instagram.com/`; // Instagram sharing is only via app
+            document.getElementById('share-twitter').href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
+            document.getElementById('share-whatsapp').href = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+            document.getElementById('share-telegram').href = `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
+            document.getElementById('share-instagram').addEventListener('click', function() {
+                alert("Instagram sharing is only available via the app.");
+            });
         });
     </script>
-</body>
-</html>
+@endsection
+
+@section('styles')
+    <style>
+        .like-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .like-button:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-outline-primary, .btn-outline-secondary {
+            display: flex;
+            align-items: center;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            padding: 8px 12px;
+            font-size: 16px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .btn-outline-primary {
+            color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-outline-primary:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-outline-secondary {
+            color: #6c757d;
+            border-color: #6c757d;
+        }
+        .btn-outline-secondary:hover {
+            background-color: #6c757d;
+            color: white;
+        }
+        .media img {
+            border-radius: 50%;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+        }
+
+        #like-button {
+            margin-right: 10px;
+        }
+
+        .card-body h3 {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .media {
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+
+        .btn-share {
+            color: #01AEA5;
+            margin: 0 5px;
+        }
+        .btn-share:hover {
+            color: #ffffff;
+        }
+
+        .post-image {
+            width: 100%;
+            height: auto;
+            max-height: 500px; /* Fixed height */
+            object-fit: cover; /* Ensure the image fits within the container */
+        }
+
+        .image-container {
+            width: 100%;
+            max-height: 500px;
+            overflow: hidden;
+        }
+    </style>
+@endsection

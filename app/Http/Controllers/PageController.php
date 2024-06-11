@@ -62,17 +62,13 @@ class PageController extends Controller
         $content = Markdown::parse($entry->get('content'));
         $comments = Comment::where('entry_id', $entry->id())->with('user')->get();
         $likesCount = Like::where('entry_id', $entry->id())->count();
-        // Replace with actual like count logic
-        return view('page.show', compact('entry', 'content', 'comments', 'likesCount'));
+        $isLiked = auth()->check() && Like::where('entry_id', $entry->id())->where('user_id', auth()->id())->exists();
+                // Replace with actual like count logic
+        $commentsCount = $comments->count();
+        return view('page.show', compact('entry', 'content', 'comments', 'likesCount', 'isLiked','commentsCount'));
 }
-private function extractFirstImage($content)
-    {
-        preg_match('/!\[.*?\]\((.*?)\)/', $content, $matches);
-        return $matches[1] ?? 'https://via.placeholder.com/150';
-    }
 
-   
-    public function like(Request $request, $slug)
+public function like(Request $request, $slug)
     {
         $entry = $this->entries->query()->where('slug', $slug)->where('collection', 'pages')->first();
 
@@ -94,6 +90,11 @@ private function extractFirstImage($content)
         return response()->json(['likesCount' => $likesCount]);
     }
 
+private function extractFirstImage($content)
+    {
+        preg_match('/!\[.*?\]\((.*?)\)/', $content, $matches);
+        return $matches[1] ?? 'https://via.placeholder.com/150';
+    }
     public function dashboard()
     {
         $datasets = Entry::query()

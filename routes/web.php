@@ -20,10 +20,7 @@ use App\Http\Controllers\DashboardController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/test-like-entry', function () {
-    $controller = app()->make(\App\Http\Controllers\PageController::class);
-    return $controller->like(request(), 'Masjids'); // Replace 'your-actual-slug' with a valid slug
-});
+
 
 Route::post('/users', [UserController::class, 'store']);
 
@@ -76,11 +73,13 @@ Route::get('/', [PageController::class, 'index'])->name('index');
 
  Route::middleware('auth')->group(function () {
     Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
+    Route::put('/comments/{comment}', [CommentController::class, 'update'])->name('comments.update');
+    Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
     // Route::post('/like/{slug}', [PageController::class, 'like'])->name('page.like');
+    Route::post('/pages/{slug}/like', [PageController::class, 'like'])->name('like')->middleware('auth');
 
 });
 
-Route::post('/like/{slug}', [PageController::class, 'like'])->name('page.like');
 Route::get('/page/{slug}', [PageController::class, 'show'])->name('page.show');
 
 // Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
