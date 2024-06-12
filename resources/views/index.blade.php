@@ -92,40 +92,78 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-5 mb-5 align-self-center">
-                    <div class="book-cover-holder">
-                        <img class="img-fluid book-cover" src="/assets/images/designer_1.png" alt="book cover">
-                    </div>
+            </div>
+            <div class="col-12 col-md-5 mb-5 align-self-center">
+                <div class="book-cover-holder">
+                    <img class="img-fluid book-cover" src="/assets/images/designer_1.png" alt="book cover">
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
     <section id="benefits-section" class="benefits-section theme-bg-light-gradient py-5">
-        <div class="container py-5">
-            <h2 class="section-heading text-center mb-3">
-                Penduduk Muslim Dashboard
-            </h2>
-            <img class="img-fluid" src="/assets/images/dashboard.png" alt="image description">
-        </div>
+        @include('components.map-section')
     </section>
-
-    <section id="audience-section" class="audience-section py-5">
-        <div class="container mb-5">
-            <h2 class="section-heading text-center mb-4">Latest Blogs</h2>
-            <div class="row">
-                @foreach ($posts as $post)
-                    <div class="col-md-4 mb-4">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h3 class="card-title">{{ $post['title']['rendered'] }}</h3>
-                                <p class="card-text content">{!! $post['content']['rendered'] !!}</p>
-                                <a href="{{ $post['link'] }}" class="btn btn-primary">Read More</a>
-                            </div>
+    <!-- <div class="container mt-5">
+        <h1 class="mb-5 text-center">Latest News</h1>
+        <div class="row">
+            @foreach ($entries as $entry)
+    <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        @php
+                            $content = $entry->get('content');
+                            preg_match('/!\[.*?\]\((.*?)\)/', $content, $matches);
+                            $image = $matches[1] ?? 'https://via.placeholder.com/150';
+                        @endphp
+                        <img src="{{ $image }}" class="card-img-top img-fluid fixed-img-size" alt="Image">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $entry->get('title') }}</h5>
+                            <p class="card-text">{{ Str::limit($content, 100) }}</p>
+                            <a href="{{ route('page.show', $entry->slug()) }}" class="btn btn-primary">Read More</a>
                         </div>
                     </div>
-                @endforeach
-            </div>
+                </div>
+    @endforeach
         </div>
-    </section>
+    </div> -->
+    <div class="container mt-5">
+        <h1 class="mb-5 text-center">Latest News</h1>
+        <div class="row" id="posts-container">
+            @include('partials.posts', ['entries' => $entries])
+        </div>
+        @if ($entries->currentPage() < $entries->lastPage())
+            <div class="text-center">
+                <button id="loadMore" class="btn btn-show-more">Show More</button>
+            </div>
+        @endif
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let currentPage = {{ $entries->currentPage() }};
+            const lastPage = {{ $entries->lastPage() }};
+            const loadMoreButton = document.getElementById('loadMore');
+
+            loadMoreButton.addEventListener('click', function() {
+                if (currentPage < lastPage) {
+                    currentPage++;
+                    fetch(`?page=${currentPage}`, {
+                            headers: {
+                                'X-Requested-With': 'XMLHttpRequest'
+                            }
+                        })
+                        .then(response => response.text())
+                        .then(data => {
+                            const postsContainer = document.getElementById('posts-container');
+                            postsContainer.insertAdjacentHTML('beforeend', data);
+
+                            if (currentPage >= lastPage) {
+                                loadMoreButton.style.display = 'none';
+                            }
+                        });
+                }
+            });
+        });
+    </script>
 @endsection

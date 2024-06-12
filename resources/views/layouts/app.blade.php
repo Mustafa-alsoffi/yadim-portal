@@ -10,6 +10,12 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="@yield('og:title')">
+    <meta property="og:description" content="@yield('og:description')">
+    <meta property="og:url" content="@yield('og:url')">
+    <meta property="og:image" content="@yield('og:image')">
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
@@ -20,27 +26,15 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @yield('styles')
+    <link rel="stylesheet" href="{{ asset('path/to/your/css/index.css') }}">
 
+    <!-- FontAwesome -->
+    <!-- <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="{{ asset('assets/fontawesome/css/all.min.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <style>
-        .card {
-            margin-bottom: 20px;
-        }
-
-        .card-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-        }
-
-        .audience-section img {
-            width: 300px;
-            height: 300px;
-        }
-
-        .btn-primary {
-            margin-top: 10px;
-        }
-    </style>
 </head>
 
 <body>
@@ -93,6 +87,10 @@
             </div>
         </footer>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

@@ -1,10 +1,44 @@
-
-
 .header-container {
     font-family: Arial, sans-serif;
-
     text-align: center;
     background-color: #01AEA5;
     color: white;
     padding: 20px 0;
+}
+
+.btn-read-more {
+    background-color: #01AEA5; /* Change to your desired background color */
+    border-color: #01AEA5; /* Change to your desired border color */
+    color: #fff; /* Text color */
+}
+
+.btn-read-more:hover {
+    background-color: #098f88; /* Change to your desired hover background color */
+    border-color: #01AEA5; /* Change to your desired hover border color */
+}
+
+/* Custom button styles for Show More */
+.btn-show-more {
+    background-color: #01AEA5; /* Change to your desired background color */
+    border-color: #01AEA5; /* Change to your desired border color */
+    color: #fff; /* Text color */
+}
+
+.btn-show-more:hover {
+    background-color: #098f88; /* Change to your desired hover background color */
+    border-color: #01AEA5; /* Change to your desired hover border color */
+}
+
+/* Style for post images to have a fixed size */
+.post-image-container {
+    width: 100%;
+    height: 200px; /* Set the desired height */
+    overflow: hidden;
+    position: relative;
+}
+
+.post-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the container */
 }
