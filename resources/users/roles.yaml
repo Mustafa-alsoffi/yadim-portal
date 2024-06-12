@@ -1,5 +1,5 @@
 email: alsoffimustafa@gmail.com
-password: 12345678
+password: $2y$10$tr5XkR5x.eE4iEJiXpiLCeS0YqeUaJ6NwI7q9ATWPieQnKqnVsPmq
 super: true
 roles:
   - admin

@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+@vite(['resources/css/map.css']) <!-- Link the CSS file using Vite -->
+@vite(['resources/css/index.css']) <!-- Link the CSS file using Vite -->
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <header class="header">
     <!-- <nav class="navbar navbar-expand-lg navbar-light">
         <div class="branding" style="padding-left: 100px; padding-right: 100px;">
@@ -42,6 +47,9 @@
             </div>
     </nav> -->
 </header>
+<div class="header-container"> <!-- New container for the header -->
+    <h1>WELCOME TO YADIM</h1>
+</div>
 
 <section class="hero-section">
     <div class="container">
@@ -145,54 +153,67 @@
 </section>
 
 <section id="benefits-section" class="benefits-section theme-bg-light-gradient py-5">
-    <div class="container py-5">
-        <h2 class="section-heading text-center mb-3">
-            Penduduk Muslim Dashboard
-        </h2>
-        <img class="img-fluid" src="/assets/images/dashboard.png" alt="image description">
+@include('components.map-section')
 </section>
-
-<section id="audience-section" class="audience-section py-5">
-    <div class="container mb-5">
-        <h2 class="section-heading text-center mb-4">Latest Blogs</h2>
-        <div class="row mb-5">
-            <div class="col-md-4">
-                <div class="blog-card">
-                    <img src="/assets/images/blog-image-1.jpg" alt="Blog Image">
-                    <div class="blog-content">
-                        <h3 class="blog-title">Blog Title 1</h3>
-                        <p class="blog-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-                            sodales sit amet neque sit amet molestie.</p>
-                        <a href="#" class="btn btn-primary">Read More</a>
+<!-- <div class="container mt-5">
+    <h1 class="mb-5 text-center">Latest News</h1>
+    <div class="row">
+        @foreach ($entries as $entry)
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    @php
+                        $content = $entry->get('content');
+                        preg_match('/!\[.*?\]\((.*?)\)/', $content, $matches);
+                        $image = $matches[1] ?? 'https://via.placeholder.com/150';
+                    @endphp
+                    <img src="{{ $image }}" class="card-img-top img-fluid fixed-img-size" alt="Image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $entry->get('title') }}</h5>
+                        <p class="card-text">{{ Str::limit($content, 100) }}</p>
+                        <a href="{{ route('page.show', $entry->slug()) }}" class="btn btn-primary">Read More</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="blog-card">
-                    <img src="/assets/images/blog-image-2.jpg" alt="Blog Image">
-                    <div class="blog-content">
-                        <h3 class="blog-title">Blog Title 2</h3>
-                        <p class="blog-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-                            sodales sit amet neque sit amet molestie.</p>
-                        <a href="#" class="btn btn-primary">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="blog-card">
-                    <img src="/assets/images/blog-image-3.jpg" alt="Blog Image">
-                    <div class="blog-content">
-                        <h3 class="blog-title">Blog Title 3</h3>
-                        <p class="blog-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-                            sodales sit amet neque sit amet molestie.</p>
-                        <a href="#" class="btn btn-primary">Read More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
-</section>
+</div> -->
+<div class="container mt-5">
+    <h1 class="mb-5 text-center">Latest News</h1>
+    <div class="row" id="posts-container">
+        @include('partials.posts', ['entries' => $entries])
+    </div>
+    @if ($entries->currentPage() < $entries->lastPage())
+        <div class="text-center">
+            <button id="loadMore" class="btn btn-show-more">Show More</button>
+        </div>
+    @endif
+</div>
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    let currentPage = {{ $entries->currentPage() }};
+    const lastPage = {{ $entries->lastPage() }};
+    const loadMoreButton = document.getElementById('loadMore');
 
+    loadMoreButton.addEventListener('click', function () {
+        if (currentPage < lastPage) {
+            currentPage++;
+            fetch(`?page=${currentPage}`, {
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+                .then(response => response.text())
+                .then(data => {
+                    const postsContainer = document.getElementById('posts-container');
+                    postsContainer.insertAdjacentHTML('beforeend', data);
 
+                    if (currentPage >= lastPage) {
+                        loadMoreButton.style.display = 'none';
+                    }
+                });
+        }
+    });
+});
+</script>
 @endsection
