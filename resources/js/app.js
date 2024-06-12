@@ -8,6 +8,7 @@ import "./bootstrap";
 import { createApp } from "vue";
 import Navbar from "./components/Navbar.vue";
 import Footer from "./components/Footer.vue";
+import Chatbot from "./components/Chatbot.vue";
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
  * registering components with the application instance so they are ready
@@ -18,7 +19,7 @@ const app = createApp({});
 
 app.component("Navbar", Navbar);
 app.component("Footer", Footer);
-
+app.component("chatbot-component", Chatbot);
 // import BarChartComponent from "./components/BarChartComponent.vue";
 // import LineChartComponent from "./components/LineChartComponent.vue";
 

@@ -57,6 +57,9 @@ Route::get('/dashboard', function () {
 Route::get('/wp-posts', [WordPressController::class, 'getPosts']);
 Route::get('/wp-users', [WordPressController::class, 'getUsers']);
 
+Route::get('/chatbot', function () {
+    return view('chatbot');
+});
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

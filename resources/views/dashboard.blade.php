@@ -5,5 +5,6 @@
 
     <div id="app">
         <dashboard-component></dashboard-component>
+        <chatbot-component></chatbot-component>
     </div>
 @endsection
