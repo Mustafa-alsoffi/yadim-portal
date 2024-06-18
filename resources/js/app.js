@@ -3,30 +3,22 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-
-import "./bootstrap";
-import { createApp } from "vue";
-import Navbar from "./components/Navbar.vue";
 import Footer from "./components/Footer.vue";
 import Chatbot from "./components/Chatbot.vue";
+import "./bootstrap";
+import { createApp } from "vue";
+
+import DashboardComponent from "./components/DashboardComponent.vue";
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
  * registering components with the application instance so they are ready
  * to use in your application's views. An example is included for you.
  */
-
 const app = createApp({});
-
-app.component("Navbar", Navbar);
-app.component("Footer", Footer);
 app.component("chatbot-component", Chatbot);
-// import BarChartComponent from "./components/BarChartComponent.vue";
-// import LineChartComponent from "./components/LineChartComponent.vue";
-
-import DashboardComponent from "./components/DashboardComponent.vue";
 
 app.component("dashboard-component", DashboardComponent);
-
+app.component("footer-component", Footer);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

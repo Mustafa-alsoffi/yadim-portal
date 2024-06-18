@@ -34,7 +34,7 @@ export default {
 
 <style scoped>
 .footer {
-  background-color: #01AEA5;
+  background-color: #01AEA5 !important;
   color: white;
   padding: 20px 0;
 }

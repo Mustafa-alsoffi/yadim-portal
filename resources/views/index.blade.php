@@ -92,41 +92,39 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-12 col-md-5 mb-5 align-self-center">
-                <div class="book-cover-holder">
-                    <img class="img-fluid book-cover" src="/assets/images/designer_1.png" alt="book cover">
+                <div class="col-12 col-md-5 mb-5 align-self-center">
+                    <div class="book-cover-holder">
+                        <img class="img-fluid book-cover" src="/assets/images/designer_1.png" alt="book cover">
+                    </div>
                 </div>
             </div>
         </div>
-        </div>
     </section>
-
     <section id="benefits-section" class="benefits-section theme-bg-light-gradient py-5">
         @include('components.map-section')
     </section>
     <!-- <div class="container mt-5">
-        <h1 class="mb-5 text-center">Latest News</h1>
-        <div class="row">
-            @foreach ($entries as $entry)
+                        <h1 class="mb-5 text-center">Latest News</h1>
+                        <div class="row">
+                            @foreach ($entries as $entry)
     <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        @php
-                            $content = $entry->get('content');
-                            preg_match('/!\[.*?\]\((.*?)\)/', $content, $matches);
-                            $image = $matches[1] ?? 'https://via.placeholder.com/150';
-                        @endphp
-                        <img src="{{ $image }}" class="card-img-top img-fluid fixed-img-size" alt="Image">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $entry->get('title') }}</h5>
-                            <p class="card-text">{{ Str::limit($content, 100) }}</p>
-                            <a href="{{ route('page.show', $entry->slug()) }}" class="btn btn-primary">Read More</a>
-                        </div>
-                    </div>
-                </div>
+                                    <div class="card h-100">
+                                        @php
+                                            $content = $entry->get('content');
+                                            preg_match('/!\[.*?\]\((.*?)\)/', $content, $matches);
+                                            $image = $matches[1] ?? 'https://via.placeholder.com/150';
+                                        @endphp
+                                        <img src="{{ $image }}" class="card-img-top img-fluid fixed-img-size" alt="Image">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ $entry->get('title') }}</h5>
+                                            <p class="card-text">{{ Str::limit($content, 100) }}</p>
+                                            <a href="{{ route('page.show', $entry->slug()) }}" class="btn btn-primary">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
     @endforeach
-        </div>
-    </div> -->
+                        </div>
+                    </div> -->
     <div class="container mt-5">
         <h1 class="mb-5 text-center">Latest News</h1>
         <div class="row" id="posts-container">

@@ -9,13 +9,13 @@
 
     <div class="row">
       <div class="col-md-5">
+                <div class="mb-4">
+          <h2>Population Distribution</h2>
+          <PieChartComponent :chartData="pieChartData" :chartOptions="chartOptions" />
+        </div>
         <div class="mb-4">
           <h2>Muslim Population by State</h2>
           <BarChartComponent :chartData="barChartData" :chartOptions="chartOptions" />
-        </div>
-        <div class="mb-4">
-          <h2>Population Distribution</h2>
-          <PieChartComponent :chartData="pieChartData" :chartOptions="chartOptions" />
         </div>
         <div class="mb-4">
           <h2>Muslim Population Over the Years</h2>
@@ -58,11 +58,11 @@ export default {
     });
 
     const pieChartData = ref({
-      labels: ['Group 1', 'Group 2', 'Group 3'],
+      labels: ['Muslims', 'Christains', 'Hindus'],
       datasets: [
         {
-          data: [30, 50, 20],
-          backgroundColor: ['#f87979', '#a6c1ee', '#f87979'],
+          data: [80, 10,  10],
+          backgroundColor: ['#a6c1ee','#f87979',  '#f87979'],
         }
       ]
     });
@@ -88,9 +88,9 @@ export default {
 
 
     const updateCharts = (location) => {
-      barChartData.value = location.barChartData;
       pieChartData.value = location.pieChartData;
-      lineChartData.value = location.lineChartData;
+      // barChartData.value = location.barChartData;
+      // lineChartData.value = location.lineChartData;
     };
 
     onMounted(() => {

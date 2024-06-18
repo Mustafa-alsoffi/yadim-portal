@@ -9,6 +9,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\DashboardController;
+use Illuminate\Support\Facades\Auth;
 
 
 /*
@@ -23,7 +24,6 @@ use App\Http\Controllers\DashboardController;
 */
 
 
-Route::post('/users', [UserController::class, 'store']);
 
 Route::statamic('password', 'auth.password');
 
@@ -78,8 +78,23 @@ Route::middleware('auth')->group(function () {
     Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
     // Route::post('/like/{slug}', [PageController::class, 'like'])->name('page.like');
     Route::post('/pages/{slug}/like', [PageController::class, 'like'])->name('like')->middleware('auth');
+
+    // Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+    // Route::post('/users/store', [UserController::class, 'store'])->name('users.store');
+    // Route::get('/users/edit/{user}', [UserController::class, 'edit'])->name('users.edit');
+    // Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
+    // Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
 });
 
+Route::middleware(['admin'])->group(function () {
+    Route::get('/users', [UserController::class, 'main'])->name('users.main');
+    Route::post('/users', [UserController::class, 'store']);
+    Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+    Route::post('/users/store', [UserController::class, 'store'])->name('users.store');
+    Route::get('/users/edit/{user}', [UserController::class, 'edit'])->name('users.edit');
+    Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
+    Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+});
 Route::get('/page/{slug}', [PageController::class, 'show'])->name('page.show');
 
 // Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
@@ -87,3 +102,9 @@ Route::get('/page/{slug}', [PageController::class, 'show'])->name('page.show');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/data', [DashboardController::class, 'getData'])->name('data');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Route::resource('users', UserController::class);

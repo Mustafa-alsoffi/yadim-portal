@@ -34,6 +34,7 @@
 
 <body>
     <div id="app">
+
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -49,10 +50,11 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
+
                         <div style='width:20px;'></div>
-                        <li class='nav-item'><a class='nav-link' href="/dashboard">Dashboard</a></li>
-                        <li class='nav-item'><a class='nav-link' href="/aboutus">About Us</a></li>
-                        <li class='nav-item'><a class='nav-link' href="/contactus">Contact Us</a></li>
+                        <li class='nav-item'><a class='nav-link' href="/users">User management</a></li>
+                        {{-- <li class='nav-item'><a class='nav-link' href="/aboutus">About Us</a></li>
+                        <li class='nav-item'><a class='nav-link' href="/contactus">Contact Us</a></li> --}}
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -97,11 +99,9 @@
                 </div>
             </div>
         </nav>
-
         <main class="py-4">
             @yield('content')
         </main>
-        <footer-component></footer-component>
     </div>
 </body>
 

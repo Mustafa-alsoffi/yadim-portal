@@ -128,7 +128,7 @@ return [
     'database' => config('database.default'),
 
     'tables' => [
-        'users' => 'users',
+        'users' => 'admins',
         'role_user' => 'role_user',
         'roles' => false,
         'group_user' => 'group_user',
@@ -147,8 +147,9 @@ return [
     */
 
     'guards' => [
-        'cp' => 'web',
+        'cp' => 'admin',
         'web' => 'web',
+        'admin' => 'admin',
     ],
 
     /*
