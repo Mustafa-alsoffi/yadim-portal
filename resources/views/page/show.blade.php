@@ -1,10 +1,9 @@
 @extends('layouts.app')
 
-@section('og:title', $entry->get('title'))
+{{-- @section('og:title', $entry->get('title'))
 @section('og:description', strip_tags($content))
 @section('og:url', url()->current())
-@section('og:image', $entry->get('images') && $entry->get('images')->first() ? $entry->get('images')->first()->url() :
-    asset('default-image.jpg'))
+@section('og:image', $entry->get('images') && $entry->get('images')->first() ? $entry->get('images')->first()->url() : asset('default-image.jpg')) --}}
 
 @section('content')
     <div class="container mt-5">
@@ -15,7 +14,7 @@
                     <i class="fas fa-share-alt"></i> Share
                 </button>
             </div>
-            <div style="width:1500px;" class="card-body">
+            <div class="card-body">
                 {!! $content !!}
                 @if ($entry->get('images'))
                     <div style="width: 50%" class="">
