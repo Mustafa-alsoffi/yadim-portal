@@ -78,12 +78,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
     // Route::post('/like/{slug}', [PageController::class, 'like'])->name('page.like');
     Route::post('/pages/{slug}/like', [PageController::class, 'like'])->name('like')->middleware('auth');
-
-    // Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
-    // Route::post('/users/store', [UserController::class, 'store'])->name('users.store');
-    // Route::get('/users/edit/{user}', [UserController::class, 'edit'])->name('users.edit');
-    // Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
-    // Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
 });
 
 Route::middleware(['admin'])->group(function () {
